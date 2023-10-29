@@ -1,0 +1,254 @@
+$background: #00034b;
+$white: #ffffff;
+$grey: #dbdbdb;
+$pink: #ffbeff;
+$shadow: #000232;
+$scale: 2;
+
+.ghost {
+  position: relative;
+  width: 150px;
+  height: 225px;
+  background: $white;
+  box-shadow: -17px 0px 0px $grey inset, 0 0 50px #5939db;
+  border-radius: 100px 100px 0 0;
+  transition: all 6s ease-in-out;
+  animation: float 3s infinite;
+
+  &__eyes {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 70px 0 0;
+    width: 90px;
+    height: 20px;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 25px;
+      background: $background;
+      border-radius: 50%;
+    }
+  }
+
+  &__dimples {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 35px 0 0;
+    width: 130px;
+    height: 20px;
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: $pink;
+      border-radius: 50%;
+    }
+  }
+
+  &__feet {
+    width: 100%;
+    position: absolute;
+    bottom: -13px;
+    display: flex;
+    justify-content: space-between;
+
+    &_foot {
+      width: 25%;
+      height: 26px;
+      border-radius: 50%;
+      background: $white;
+
+      &:last-child {
+        background-image: linear-gradient(to right, $white 55%, $grey 45%);
+      }
+    }
+  }
+
+  &_container {
+    animation-name: whoosh;
+    animation-timing-function: ease-in-out;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: scale($scale) translateY(0);
+  }
+
+  50% {
+    transform: scale($scale) translateY(-15px);
+  }
+}
+
+@keyframes whoosh {
+  0%, 100% { //left of screen
+    transform:
+      translateX(calc(-50vw - 200% - 50px))
+      translateY(0)
+      rotate(20deg)
+      scale(1)
+    ;
+    opacity: 1
+  }
+
+  10% { //right of screen
+    transform:
+      translateX(calc(50vw + 200%))
+      translateY(0)
+      rotate(-20deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  20% { //left of screen
+    transform:
+      translateX(calc(-50vw - 200%))
+      translateY(0)
+      rotate(20deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  21% { //top left of screen
+    transform:
+      translateX(calc(-50vw - 200%))
+      translateY(calc(-50vh - 200%))
+      rotate(120deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  30%, 35% { //peeking from top left of screen
+    transform:
+      translateX(calc(-45vw))
+      translateY(calc(-45vh))
+      rotate(120deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  40% { //top left of screen
+    transform:
+      translateX(calc(-50vw - 200%))
+      translateY(calc(-50vh - 200%))
+      rotate(120deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  41% { //top left of screen, invisible
+    transform:
+      translateX(calc(-50vw - 200%))
+      translateY(calc(-50vh - 200%))
+      rotate(120deg)
+      scale(1)
+    ;
+    opacity: 0;
+  }
+
+  42% { //below left third of screen, invisible
+    transform:
+      translateX(calc(-25vw - 100%))
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 0;
+  }
+
+  43% { //below left third of screen
+    transform:
+      translateX(calc(-25vw - 100%))
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  46%, 48% { //peeking left third of screen
+    transform:
+      translateX(calc(-25vw - 100%))
+      translateY(calc(30vh))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  49% { //below left third of screen
+    transform:
+      translateX(calc(-25vw - 100%))
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  50% { //below right third of screen
+    transform:
+      translateX(calc(25vw + 100%))
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  53%, 55% { //peeking right third of screen
+    transform:
+      translateX(calc(25vw + 100%))
+      translateY(calc(30vh))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  56% { //below right third of screen
+    transform:
+      translateX(calc(25vw + 100%))
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  57%, 70% { //below centre of screen
+    transform:
+      translateX(0)
+      translateY(calc(50vh + 200%))
+      rotate(0deg)
+      scale(1)
+    ;
+    opacity: 1;
+  }
+
+  80% { // up up and away!
+    transform:
+      translateX(30vw)
+      translateY(-100vh)
+      rotate(170deg)
+      scale(2)
+    ;
+    opacity: 1;
+  }
+}
