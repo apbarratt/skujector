@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Fireworks as FireworksJS } from '@fireworks-js/react'
 import styles from '../styles/Home.module.scss'
+import { FireworkShow } from '../components/FireworkShow'
 
 const Fireworks: NextPage = () => {
   return (
@@ -13,22 +13,7 @@ const Fireworks: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <FireworksJS
-          options={{
-            rocketsPoint: {
-              min: 0,
-              max: 100
-            }
-          }}
-          style={{
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            position: 'fixed',
-            background: '#000'
-          }}
-        />
+        <FireworkShow />
       </main>
     </div>
   )

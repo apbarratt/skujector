@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
-import { Ghost } from '../components/Ghost'
 
 const Home: NextPage = () => {
   return (
@@ -15,10 +14,19 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Link href="/ghosty">
-          Ghosty
+          <span className={styles.button}>Ghosty</span>
         </Link>
         <Link href="/fireworks">
-          Fireworks
+        <span className={styles.button}>Fireworks</span>
+        </Link>
+        <Link href="/diya">
+        <span className={styles.button}>Diya</span>
+        </Link>
+        <Link href="/diya+fireworks">
+        <span className={styles.button}>Diya + Fireworks</span>
+        </Link>
+        <Link href="/diya+fireworks+ghosty">
+        <span className={styles.button}>Diya + Fireworks + Ghosty</span>
         </Link>
       </main>
     </div>
